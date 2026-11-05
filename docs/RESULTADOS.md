@@ -39,3 +39,17 @@ em QPU real.
 | POC-20261105b | ibm_marrakesh | dbme1pl8mdtc73d7qbig | W-02 0,8906 certificado; W-03 p 0,8008; W-01 TVD 0,2957 |
 
 Recibos correspondentes em `examples/recibos/`.
+
+## 4. Como reproduzir
+
+As linhas de hardware acima foram produzidas pelo ecossistema Zephirum. Dentro deste
+repositório, a reprodução mínima é:
+
+```bash
+pip install "serena-qsr[hardware]"
+python scripts/poc_qpu.py                # simulador, sem custo de fila
+python scripts/poc_qpu.py --hardware     # QPU IBM, requer token e consome cota
+```
+
+Cada execução grava `examples/recibos/poc_qpu.json` com protocolo selado antes do
+disparo, dispositivo, job_id e veredito pela banda declarada.

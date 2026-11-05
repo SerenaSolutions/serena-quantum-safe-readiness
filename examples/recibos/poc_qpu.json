@@ -1,0 +1,42 @@
+{
+ "protocolo": {
+  "id": "QSR-POC",
+  "shots": 2048,
+  "circuito": "Grover 3 qubits, marcado |101>, 2 iteracoes (optimo para N=8, M=1)",
+  "bandas": {
+   "p_marcado": [
+    0.85,
+    0.7
+   ]
+  },
+  "previsao_teorica": {
+   "p_ideal": 0.9453125,
+   "classico": 0.125
+  },
+  "declarado_em": "2026-11-05T21:44:21Z",
+  "sha3_protocolo": "5a177339de437b46cb7e5dbeb8a04718631ad8f0016653c6c32cc001bc0bc598"
+ },
+ "execucao": {
+  "dispositivo": "aer_simulator",
+  "job_id": "local",
+  "shots": 2048,
+  "contagens": {
+   "011": 18,
+   "111": 22,
+   "100": 19,
+   "001": 15,
+   "110": 25,
+   "000": 16,
+   "010": 22,
+   "101": 1911
+  }
+ },
+ "resultado": {
+  "p_marcado": 0.9331,
+  "p_ideal": 0.9453125,
+  "classico": 0.125,
+  "veredito": "1"
+ },
+ "carimbo_utc": "2026-11-05T21:44:23+00:00",
+ "sha3_256": "a99df8c3a83752347ef1cbe4ed1843daf101776775f43fce13373c8dc5d48b73"
+}

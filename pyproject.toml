@@ -14,6 +14,8 @@ dependencies = []
 
 [project.optional-dependencies]
 pq = ["pqcrypto>=0.3"]
+# prova de conceito em QPU real (opcional: o nucleo do QSR nao usa circuito)
+hardware = ["qiskit>=2.6,<3", "qiskit-aer>=0.17,<0.19", "qiskit-ibm-runtime>=0.50"]
 
 [project.scripts]
 qsr = "quantum_safe_readiness:main"

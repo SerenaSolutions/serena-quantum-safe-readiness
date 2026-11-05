@@ -42,6 +42,26 @@ recibo em `examples/recibos/qsr_readiness.json`.
 Sem o extra `pq`, a etapa de interoperabilidade devolve `REFUSED`, que é o
 comportamento correto: não se afirma o que não foi medido.
 
+
+## Por que o Qiskit não é dependência base
+
+O núcleo do QSR é clássico: inventaria criptografia e aplica o critério de Mosca. Quem
+faz o trabalho pós-quântico é o `pqcrypto`. Obrigar todo usuário a instalar um framework
+de circuitos quânticos para inventariar servidores seria peso sem uso.
+
+A prova em hardware, porém, é reproduzível: existe o extra `hardware` e o script
+`scripts/poc_qpu.py`, que sela o protocolo antes de executar e roda em simulador por
+padrão.
+
+```bash
+pip install "serena-qsr[hardware]"
+python scripts/poc_qpu.py                # simulador
+python scripts/poc_qpu.py --hardware     # QPU IBM (IBM_QUANTUM_TOKEN no ambiente)
+```
+
+O circuito é um Grover de 3 qubits com o estado |101> marcado e 2 iterações, que é o
+número ótimo para N=8 e M=1. Previsão teórica: 0,9453 contra 0,125 do clássico.
+
 ## Base científica
 
 Fundamentação em FIPS 203, FIPS 204, FIPS 205, NIST IR 8547 (versão final de
