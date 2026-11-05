@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "serena-qsr"
+version = "0.1.0"
+description = "Serena Quantum-Safe Readiness: inventario criptografico, criterio de Mosca, agilidade e recibo SHA3 auditavel"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+authors = [{ name = "Serena Quantum Solutions" }]
+dependencies = []
+
+[project.optional-dependencies]
+pq = ["pqcrypto>=0.3"]
+
+[project.scripts]
+qsr = "quantum_safe_readiness:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+py-modules = ["quantum_safe_readiness"]

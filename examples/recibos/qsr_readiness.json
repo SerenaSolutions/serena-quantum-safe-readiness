@@ -1,0 +1,94 @@
+{
+ "modulo": "quantum_safe_readiness",
+ "versao": "0.1.0",
+ "alvo": "src",
+ "ano_crqc_hipotese": 2035.0,
+ "perfil": "ot_ics",
+ "inventario": {
+  "total": 14,
+  "por_categoria": {
+   "pqc": 5,
+   "rsa": 3,
+   "ecc": 2,
+   "tls_antigo": 1,
+   "hash_fraco": 1,
+   "biblioteca": 1,
+   "ot_ics": 1
+  },
+  "arquivos": 1,
+  "tem_ot_ics": true,
+  "ja_usa_pqc": true
+ },
+ "risco": {
+  "veredito": "0",
+  "ativos": [
+   {
+    "ativo": "rsa_detectado",
+    "veredito": "0",
+    "motivo": "migracao 3 + sigilo 20 = 23 anos > janela 8.1 anos",
+    "x": 3,
+    "y": 20,
+    "z": 8.1
+   },
+   {
+    "ativo": "ecc_detectado",
+    "veredito": "0",
+    "motivo": "migracao 3 + sigilo 20 = 23 anos > janela 8.1 anos",
+    "x": 3,
+    "y": 20,
+    "z": 8.1
+   }
+  ],
+  "contagem": {
+   "1": 0,
+   "0": 2,
+   "REFUSED": 0
+  }
+ },
+ "agilidade": {
+  "veredito": "REFUSED",
+  "motivo": "espalhamento intermediario (1.00) sem politica declarada",
+  "arquivos_com_vulneravel": 1,
+  "arquivos_com_pqc": 1,
+  "espalhamento": 1.0
+ },
+ "interop_pqc": {
+  "veredito": "REFUSED",
+  "rodadas": 3,
+  "kem_ok": 3,
+  "dsa_ok": 0,
+  "tamanhos_bytes": {
+   "kem_pk": 1184,
+   "kem_ct": 1088,
+   "sig_pk": 0,
+   "sig_sig": 0
+  },
+  "tamanhos_padrao": {
+   "ml_kem_768": {
+    "chave_publica": 1184,
+    "texto_cifrado": 1088,
+    "segredo": 32
+   },
+   "ml_dsa_44": {
+    "chave_publica": 1312,
+    "assinatura": 2420
+   }
+  },
+  "confere_padrao_fips": false,
+  "nota": "chaves publicas identicas ao padrao provam que o algoritmo e o declarado"
+ },
+ "veredito_final": "REFUSED",
+ "fontes": {
+  "FIPS 203 (2024-08-13)": "parametros e tamanhos do ML-KEM",
+  "FIPS 204 (2024-08-13)": "parametros e tamanhos do ML-DSA",
+  "FIPS 205 (2024-08-13)": "alternativa SLH-DSA (hash)",
+  "NIST IR 8547 final (2026-10-27)": "plano de transicao; substitui o rascunho de 2024-11-12",
+  "SP 800-57": "criptoperiodo e ciclo de vida de chave",
+  "CNSA 2.0 (2022)": "teto conservador para defesa e infraestrutura critica",
+  "SP 1800-38": "fases de inventario e prova de migracao",
+  "Mosca": "criterio X + Y > Z com Z declarado, nunca afirmado"
+ },
+ "ressalva": "nao e atestado de conformidade regulatoria; e evidencia de prontidao",
+ "carimbo_utc": "2026-11-05T21:39:41.903492+00:00",
+ "sha3_256": "e909a4c13111fafd7bf550cc5b3c311c928d0e7307795d051cf1300f656a62ae"
+}

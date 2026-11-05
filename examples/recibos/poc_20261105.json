@@ -1,0 +1,74 @@
+{
+ "protocolo": {
+  "id": "WORLD-20261029",
+  "declarado": {
+   "shots": 8192,
+   "alpha": 0.01,
+   "bandas": {
+    "W-01_tvd": [
+     0.2,
+     0.35
+    ],
+    "W-02_vis": [
+     0.8,
+     0.5
+    ],
+    "W-03_p": [
+     0.7,
+     0.3
+    ]
+   },
+   "fotonica": "analogo em qubits supercondutores, nao fotonica real"
+  }
+ },
+ "execucao": {
+  "dispositivo": "ibm_fez",
+  "job_id": "dbmfcvt8ft8s738up32g",
+  "counts": {
+   "W-01": {
+    "100": 470,
+    "110": 469,
+    "001": 3101,
+    "010": 390,
+    "101": 2185,
+    "011": 490,
+    "000": 606,
+    "111": 481
+   },
+   "W-02": {
+    "11": 7346,
+    "10": 432,
+    "01": 271,
+    "00": 143
+   },
+   "W-03": {
+    "101": 6227,
+    "100": 357,
+    "001": 356,
+    "010": 225,
+    "111": 263,
+    "110": 234,
+    "000": 244,
+    "011": 286
+   }
+  }
+ },
+ "resultado": {
+  "W-01": {
+   "tvd": 0.3547,
+   "veredito": "0"
+  },
+  "W-02": {
+   "coincidencia": 0.0858,
+   "visibilidade": 0.8284,
+   "veredito": "1"
+  },
+  "W-03": {
+   "p_marcado": 0.7601,
+   "classico": 0.125,
+   "ideal_2iter": 0.945,
+   "veredito": "1"
+  }
+ },
+ "receipt_sha3_256": "0f7bd96ded9c659721891d4db07635bef93842c793cc2faafc4c0a341eb8d7ea"
+}
