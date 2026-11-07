@@ -89,6 +89,19 @@ def scan(caminho: str | Path, max_bytes: int = 2_000_000) -> list[Achado]:
     return achados
 
 
+def achados_para_ci(achados: list[Achado], limite: int = 50) -> list[dict]:
+    """Achados no formato que o GitHub Actions consome como anotacao."""
+    saida = []
+    for a in achados:
+        if a.categoria in ("pqc", "ot_ics", "biblioteca", "certificado"):
+            continue
+        saida.append({"arquivo": a.arquivo, "linha": a.linha,
+                      "titulo": f"criptografia vulneravel: {a.categoria}", "trecho": a.trecho})
+        if len(saida) >= limite:
+            break
+    return saida
+
+
 def resumo_inventario(achados: list[Achado]) -> dict[str, Any]:
     por_cat: dict[str, int] = {}
     arquivos: set[str] = set()
@@ -286,7 +299,13 @@ def main(argv: list[str] | None = None) -> int:
         crqc = float(resto[resto.index("--crqc") + 1])
     if cmd == "scan":
         alvo = resto[0] if resto else "."
+        quer_json = "--json" in resto
         r = avaliar(alvo, crqc)
+        if quer_json:
+            import tempfile
+            rec = selar(r, None)
+            print(json.dumps({"avaliacao": r, "recibo": rec}, ensure_ascii=False))
+            return 0 if r["veredito_final"] == "1" else 1
         rec = selar(r, "examples/recibos/qsr_readiness.json")
         print(f"QSR | alvo: {alvo} | perfil: {r['perfil']}")
         print(f"inventario: {r['inventario']['total']} achados em {r['inventario']['arquivos']} arquivos {r['inventario']['por_categoria']}")
